@@ -40,6 +40,7 @@ def select_login():
         if connection:
             connection.close()   
 
+
 if __name__ == "__main__":
     # d4 개발자의 테스트 코드
     # f5 개발자가 사용할 때는 작동안함

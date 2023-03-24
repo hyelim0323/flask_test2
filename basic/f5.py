@@ -51,7 +51,6 @@ def login():
         # 4. 회원아니면
             # 4-1. 적당한 메세지후 다시 로그인 유도
         return redirect('https://www.naver.com')    # 요청을 다른 URL로 포워딩한다
-        
 
 if __name__ == "__main__":
     app.run(debug=True)
