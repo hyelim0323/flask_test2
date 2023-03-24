@@ -53,6 +53,13 @@
         ENGINE=InnoDB
         ;
 
+        # 컬럼 추가 : ADD COLUMN
+        # 컬럼 변경 : MODIFY COLUMN
+        # 컬럼 이름 포함 변경 : CHANGE COLUMN
+        # 컬럼 삭제 : DROP  COLUMN
+        # 테이블 이름 변경 : RENAME
+        # ALTER TABLE <테이블명> CHANGE COLUMN <OLD 컬럼> <NEW 컬럼> <데이터 타입> [FIRST|AFTER <컬럼명>]
+
         ALTER TABLE `users`
         CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '고객 고유 관리 ID' FIRST,
         CHANGE COLUMN `uid` `uid` VARCHAR(32) NOT NULL COMMENT '고객 로그인 아이디' COLLATE 'utf8mb4_general_ci' AFTER `id`,
@@ -73,9 +80,6 @@
         COLLATE='utf8mb4_general_ci'
         ENGINE=InnoDB
         ;
-
-        
-
 
 '''
 import pymysql as my
