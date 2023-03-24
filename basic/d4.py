@@ -3,8 +3,9 @@
 '''
 import pymysql as my
 
-def select_login():
+def select_login(uid, upw):
     connection = None
+    row = None  
     try:    
         connection = my.connect(host        ='localhost',
                                 #port        = 3306,     
@@ -26,7 +27,7 @@ def select_login():
                 AND
                     upw=%s;
             '''
-            cursor.execute( sql, ('guest', '1234') )
+            cursor.execute( sql, (uid, upw) )
             row = cursor.fetchone()
             # 5. 결과확인 -> 딕셔너리 -> 이름만 추출하시오 -> '게스트'
             print( row )
@@ -44,4 +45,4 @@ def select_login():
 if __name__ == "__main__":
     # d4 개발자의 테스트 코드
     # f5 개발자가 사용할 때는 작동안함
-    select_login()
+    select_login('guest', '1234')
