@@ -3,10 +3,10 @@
     - 명령어 조정 : flask 명령어 사용
     - flask --app start_app --debug run
 
-# 애플리케이션 팩토리
+# 애플리케이션 팩토리 : step2_app_factory
     - 플라스크 객체 관리 및 중복참조를 배제하기 위한 구성
 
-# 블루프린트
+# 블루프린트 : step2_app_factory
     - 사이트, 주제별 페이징 분할 처리
 
 # 부트스트랩
