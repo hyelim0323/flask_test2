@@ -8,10 +8,28 @@ from flask import Flask
 '''
 def create_app():
     app = Flask(__name__)
-
+    
+    init_environment(app)
     init_blueprint(app)
 
     return app
+
+
+def init_environment(app):
+    # 특정파일(cfg, ...)등을 읽어서 처리 가능
+    app.config.from_pyfile( 'resource/config.cfg', silent=True )
+    # py 모듈가져오기 해서 (객체)를 세팅해서 처리
+    import service.config as config
+    app.config.from_object( config )
+    # 환경변수(OS레벨, 플라스크레벨, 사용자정의레벨) 모두 출력
+    print('\n' + '-'*20)
+    # 개별 환경 변수값 추출
+    print( app.config['SECRET_KEY'], app.config.get('SECRET_KEY'))
+    # for k, v in app.config.items():
+    #     print(k, v)
+    #     print('-'*20 + '\n')
+    pass
+
 
 def init_blueprint(app):
     # app에 블루프린트 객체를 등록한다
@@ -22,7 +40,7 @@ def init_blueprint(app):
     # 블루프린트로 정의된 개별 페이지 관련 내용 로드
     from .controllers import main_controller
     from .controllers import auth_controller
-    
+
     # 이 위치에서는 service를 생략하고 표현 가능
     # from service.controllers import bp_main
     from .controllers import bp_main, bp_auth
