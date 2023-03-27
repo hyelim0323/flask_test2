@@ -9,9 +9,20 @@
 # 블루프린트 : step2_app_factory
     - 사이트, 주제별 페이징 분할 처리
 
-# 부트스트랩
+# 부트스트랩 <-> 머터리얼, ...
     - 부트스트랩 적용, 베이스 페이지 구성
+        - https://getbootstrap.kr/docs/5.2/getting-started/download/
+            - 다운로드클릭 -> 압축해제
+            - static 폴더 하위에 파일 위치
+                - bootstrap.min.css(or js)
+            - https://getbootstrap.kr/docs/5.2/examples/
+                - 다양한 UI 형태 예시로 제공
+
     - 디자인 적용 기준 설정
+        - static 밑에 공통으로 사용할 CSS(부트스트랩) 적용
+            - SASS를 사용하는 회사도 존재 > CSS -> SASS로 넘어가는 추세
+    - flask-bootstrap -> 2017년 이후로 업데이트 X
+        - 부트스트랩버전 3.x => 사용안함
 
 # 입력폼 유효성
     - 계획된 루트가 아닌 방식으로 진입시 이를 리젝하는 처리(보안기능)
