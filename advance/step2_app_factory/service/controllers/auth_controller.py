@@ -39,7 +39,7 @@ def login():
                 'exp': datetime.utcnow() + timedelta(seconds=60*60*24) 
             }
             # 토큰 발급 => 시크릿키, 해시알고리즘("HS256"), 데이터(payload)
-            SECRET_KEY = current_app.config('SECRET_KEY')   # 환경변수값 획득
+            SECRET_KEY = current_app.config['SECRET_KEY']   # 환경변수값 획득
             # 발급
             token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
             # 4. 응답 전문 구성 -> 응답
