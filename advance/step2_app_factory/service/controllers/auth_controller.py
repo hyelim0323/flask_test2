@@ -12,14 +12,15 @@ from  service.controllers   import bp_auth as auth
 def home():
     # url_for("별칭.함수명") => url이 리턴된다
     print( url_for('auth_bp.login') )
-    print( url_for('auth_bp.logout') )
-    print( url_for('auth_bp.signup') )
-    print( url_for('auth_bp.delete') )
     return "auth 홈"
 
-@auth.route('/login')
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
-    return "auth login"
+    if request.method == 'GET':
+        return render_template('login.html')
+    else:
+        # jwt 관련 체크 => 정상(200), 오류(404)
+        return 'jwt 체크 완료'
 
 @auth.route('/logout')
 def logout():
